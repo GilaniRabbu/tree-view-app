@@ -1,9 +1,7 @@
 import { useState } from "react";
 
-
 export default function AddNodeModal({ parentId, treeData, setTreeData, onClose }) {
     const [label, setLabel] = useState("");
-
 
     const addChild = (nodes) =>
         nodes.map((node) => {
@@ -31,7 +29,7 @@ export default function AddNodeModal({ parentId, treeData, setTreeData, onClose 
                     <button
                         onClick={() => {
                             setTreeData(addChild(treeData));
-                            onClose(); // closes modal
+                            onClose();
                         }}
                     >
                         Add

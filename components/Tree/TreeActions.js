@@ -42,20 +42,20 @@ export default function TreeActions({ node, treeData, setTreeData }) {
             {open && (
                 <div className="absolute right-0 mt-1 bg-white border shadow p-2 z-10">
                     <button
-                        className="block w-full text-left"
+                        className="block px-2 py-1 w-full text-left"
                         onClick={() => {
                             setShowAdd(true);
-                            setOpen(false); // ✅ close menu
+                            setOpen(false);
                         }}
                     >
                         Add Child
                     </button>
 
                     <button
-                        className="block w-full text-left"
+                        className="block px-2 py-1 w-full text-left"
                         onClick={() => {
                             setShowDelete(true);
-                            setOpen(false); // ✅ close menu
+                            setOpen(false);
                         }}
                     >
                         Delete
