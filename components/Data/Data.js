@@ -9,4 +9,9 @@ export const initialTreeData = [
     label: "Root Node 2",
     children: [],
   },
+  {
+    id: 3,
+    label: "Root Node 3",
+    children: [],
+  },
 ];

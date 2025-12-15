@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FiPlus } from "react-icons/fi";
 import TreeNode from "./TreeNode";
 import AddRootModal from "./AddRootModal";
 import { initialTreeData } from "../Data/Data";
@@ -14,9 +15,9 @@ export default function Tree() {
       {/* Add Root Node */}
       <button
         onClick={() => setShowRootModal(true)}
-        className="mb-4 px-3 py-1 border border-gray-300 rounded cursor-pointer"
+        className="flex items-center gap-1 mb-4 px-3 py-1 border border-gray-300 rounded cursor-pointer"
       >
-        + Add Root Node
+        <FiPlus className="text-gray-700" /> Add Root Node
       </button>
 
       {treeData.map((node) => (
