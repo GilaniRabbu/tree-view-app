@@ -26,7 +26,7 @@ export default function AddNodeModal({ parentId, treeData, setTreeData, onClose 
       <h3 className="mb-2 font-semibold">Add Child</h3>
 
       <input
-        className="border p-1 w-full"
+        className="border border-gray-300 rounded p-2 w-full"
         value={label}
         onChange={(e) => setLabel(e.target.value)}
         placeholder="Node label"
@@ -34,6 +34,7 @@ export default function AddNodeModal({ parentId, treeData, setTreeData, onClose 
 
       <div className="mt-3 flex gap-2 justify-end">
         <button
+          className="cursor-pointer rounded bg-blue-500 text-white px-3 py-1"
           onClick={() => {
             setTreeData(addChild(treeData));
             onClose();
@@ -41,8 +42,12 @@ export default function AddNodeModal({ parentId, treeData, setTreeData, onClose 
         >
           Add
         </button>
-
-        <button onClick={onClose}>Cancel</button>
+        <button
+          className="cursor-pointer rounded bg-gray-300 px-3 py-1"
+          onClick={onClose}
+        >
+          Cancel
+        </button>
       </div>
     </ModalWrapper>
   );

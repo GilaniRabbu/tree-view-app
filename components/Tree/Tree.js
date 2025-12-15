@@ -14,7 +14,7 @@ export default function Tree() {
       {/* Add Root Node */}
       <button
         onClick={() => setShowRootModal(true)}
-        className="mb-4 px-3 py-1 border"
+        className="mb-4 px-3 py-1 border border-gray-300 rounded cursor-pointer"
       >
         + Add Root Node
       </button>

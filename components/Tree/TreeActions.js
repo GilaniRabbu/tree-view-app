@@ -19,8 +19,8 @@ export default function TreeActions({ node, treeData, setTreeData }) {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setOpen(false);
       }
     }
@@ -36,13 +36,18 @@ export default function TreeActions({ node, treeData, setTreeData }) {
 
   return (
     <div className="relative" ref={menuRef}>
-      <button onClick={() => setOpen((prev) => !prev)}>⋮</button>
-
+      <button
+        aria-label="Node actions"
+        onClick={() => setOpen((prev) => !prev)}
+        className="cursor-pointer flex items-center justify-center w-7 h-7 rounded hover:bg-gray-100 focus:outline-none"
+      >
+        <span className="text-lg leading-none">⋮</span>
+      </button>
 
       {open && (
-        <div className="absolute right-0 mt-1 bg-white border shadow p-2 z-10">
+        <div className="absolute left-0 mt-1 w-36 rounded border border-gray-300 bg-white shadow-md z-10 overflow-hidden">
           <button
-            className="block px-2 py-1 w-full text-left"
+            className="w-full px-3 py-2 text-left text-sm cursor-pointer hover:bg-gray-100"
             onClick={() => {
               setShowAdd(true);
               setOpen(false);
@@ -50,9 +55,9 @@ export default function TreeActions({ node, treeData, setTreeData }) {
           >
             Add Child
           </button>
-
+          <div className="h-px bg-gray-200" />
           <button
-            className="block px-2 py-1 w-full text-left"
+            className="w-full px-3 py-2 text-left text-sm cursor-pointer text-red-600 hover:bg-red-50"
             onClick={() => {
               setShowDelete(true);
               setOpen(false);
