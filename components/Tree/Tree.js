@@ -1,14 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import TreeNode from "./TreeNode";
 import AddRootModal from "./AddRootModal";
 import { initialTreeData } from "../Data/Data";
 
+export const TREE_STORAGE_KEY = "multi_level_tree_data";
+
 export default function Tree() {
-  const [treeData, setTreeData] = useState(initialTreeData);
+  const [treeData, setTreeData] = useState(() => {
+    if (typeof window === "undefined") return initialTreeData;
+
+    const storedData = localStorage.getItem(TREE_STORAGE_KEY);
+    return storedData ? JSON.parse(storedData) : initialTreeData;
+  });
+
   const [showRootModal, setShowRootModal] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem(
+      TREE_STORAGE_KEY,
+      JSON.stringify(treeData)
+    );
+  }, [treeData]);
 
   return (
     <div className="p-4">
